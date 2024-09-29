@@ -1,0 +1,18 @@
+<article class="task">
+    <button class="delete-task" (click)="onDelete()">
+        🗑️
+    </button>
+    <div class="task__header">
+        <input type="checkbox" class="task__checkbox" (change)="onChange($event)" [(ngModel)]="task.done">
+        <p class="task__info">{{ task.title }} - {{ task.deadline | date:'YYYY-MM-dd' }}</p>
+    </div>
+    <div class="task__associates">
+        <p class="task__associates-title">Personas asociadas:</p>
+        <ul class="task__associates-list">
+            <li class="task__associate" *ngFor="let associate of task.associates">
+                <span class="task__associate-name">{{ associate.fullName }} ({{ associate.age }})</span>
+                <span class="task__associate-skills">Habilidades: {{ associate.skills | formatHabilities }}</span>
+            </li>
+        </ul>
+    </div>
+</article>

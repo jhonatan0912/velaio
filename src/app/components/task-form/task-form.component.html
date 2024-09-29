@@ -1,0 +1,77 @@
+<form class="task-form" [formGroup]="taskForm">
+  <h2 class="task-form__title">Crear nueva tarea</h2>
+
+  <section class="task-form__section task-form__section--details">
+    <div class="task-form__field">
+      <label for="title" class="task-form__label">Nombre de la tarea:</label>
+      <input type="text" id="title" class="task-form__input" formControlName="title"/>
+    </div>
+
+    <div class="task-form__field">
+      <label for="deadline" class="task-form__label">Fecha limite:</label>
+      <input type="date" id="deadline" class="task-form__input" formControlName="deadline" [min]="minDate"/>
+    </div>
+  </section>
+
+  <section class="task-form__section task-form__section--people">
+    <h3 class="task-form__subtitle">Personas asociadas:</h3>
+
+    <div class="task-form__group" formArrayName="associates">
+      <div *ngFor="let associate of associates.controls; let i = index" [formGroupName]="i">
+        <div class="task-form__field">
+          <label for="fullname-{{ i }}" class="task-form__label">Nombre completo:</label>
+          <input
+            type="text"
+            id="fullname-{{ i }}"
+            class="task-form__input"
+            formControlName="fullName"
+          />
+        </div>
+        <div class="task-form__field">
+          <label for="age-{{ i }}" class="task-form__label">Edad:</label>
+          <input
+            type="number"
+            id="age-{{ i }}"
+            class="task-form__input"
+            formControlName="age"
+          />
+        </div>
+        <div class="task-form__field">
+          <label for="skills-{{ i }}" class="task-form__label">Habilidades:</label>
+          <div class="task-form__skills" formArrayName="skills">
+            <div class="task-form__skill"  *ngFor="let skill of getSkills(i).controls; let j = index">
+              <input
+                type="text"
+                [formControlName]="j"
+                class="task-form__input"
+                placeholder="Escribe una habilidad"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="task-form__actions skills">
+          <button type="button" (click)="addSkill(i)" class="task-form__button add-skill">
+            Añadir habilidad
+          </button>
+          <button *ngIf="getSkills(i).length > 1" type="button" (click)="removeSkill(i)" class="task-form__button remove-skill">
+            Eliminar habilidad
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="task-form__actions associates">
+    <button type="button" (click)="addAssociate()" class="task-form__button add-associate">
+      Añadir persona
+    </button>
+    <button *ngIf="associates.length > 1" type="button" (click)="removeAssociate()" class="task-form__button remove-associate">
+      Eliminar persona
+    </button>
+  </div>
+
+
+  <button class="task-form__submit" type="button" (click)="onSubmit()">
+    Submit
+  </button>
+</form>

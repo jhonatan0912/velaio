@@ -1,0 +1,139 @@
+.task-form {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-form__title,
+.task-form__subtitle {
+  margin-bottom: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.task-form__section {
+  margin-bottom: 20px;
+}
+
+.task-form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.task-form__label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.task-form__field {
+  margin-bottom: 15px;
+}
+
+.task-form__skills {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  width: 100%;
+
+  .task-form__skill {
+    min-width: 200px;
+    width: 200px;
+  }
+}
+
+.task-form__label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.task-form__input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.task-form__input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.task-form__actions {
+  display: flex;
+  gap: .5rem;
+}
+
+.task-form__button {
+  padding: .5rem;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    scale: .95;
+  }
+}
+
+.add-skill {
+  background-color: #2196F3;
+}
+
+.remove-skill {
+  background-color: #F44336;
+}
+
+.add-associate {
+  background-color: #4CAF50;
+}
+
+.remove-associate {
+  background-color: #F44336;
+}
+
+.task-form__section--people {
+  background-color: #ebebeb;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.task-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-form__submit {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  display: block;
+  margin-inline: auto;
+
+  &:hover {
+    scale: .95;
+  }
+}
+
+@media (max-width: 600px) {
+  .task-form__group {
+    grid-template-columns: 1fr;
+  }
+}
