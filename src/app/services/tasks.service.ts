@@ -10,7 +10,7 @@ export type FilterOption = 'all' | 'done' | 'pending';
 export class TasksService {
 
   tasks: Task[] = [];
-  onUpdated: Subject<void> = new Subject<void>();
+  onTaskDeleted: Subject<void> = new Subject<void>();
 
   constructor() { }
 

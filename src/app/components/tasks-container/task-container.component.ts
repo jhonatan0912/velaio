@@ -18,12 +18,10 @@ export class TaskContainerComponent implements OnInit {
 
   tasks: Task[] = [];
 
-  constructor() { }
-
   ngOnInit() {
     this.tasks = this.tasksService.tasks;
 
-    this.tasksService.onUpdated
+    this.tasksService.onTaskDeleted
       .subscribe({
         next: () => {
           this.tasks = this.tasksService.tasks;

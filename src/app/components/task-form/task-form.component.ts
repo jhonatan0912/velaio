@@ -59,22 +59,22 @@ export class TaskFormComponent {
     });
   }
 
-  addAssociate() {
+  addAssociate(): void {
     this.associates.push(this.createAssociate());
   }
 
-  removeAssociate() {
+  removeAssociate(): void {
     if (this.associates.length > 1) {
       this.associates.removeAt(this.associates.length - 1);
     }
   }
 
-  addSkill(associateIndex: number) {
+  addSkill(associateIndex: number): void {
     const skillsArray = this.associates.at(associateIndex).get('skills') as FormArray;
     skillsArray.push(new FormControl('', [Validators.required]),);
   }
 
-  removeSkill(associateIndex: number) {
+  removeSkill(associateIndex: number): void {
     const skillsArray = this.associates.at(associateIndex).get('skills') as FormArray;
     if (skillsArray.length > 1) {
       skillsArray.removeAt(skillsArray.length - 1);
