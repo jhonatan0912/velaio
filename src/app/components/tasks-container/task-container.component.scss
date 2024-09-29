@@ -7,7 +7,17 @@
 
 .tasks-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
   padding-top: 1rem;
-  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+  .tasks-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-inline: 1rem;
+  }
+
 }
